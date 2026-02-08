@@ -16,3 +16,14 @@ LEFT JOIN inventory.suppliers ON suppliers.drug_id = drugs.drug_id
 WHERE stock.quantity <= 1000;
 
 -- 2. Supplier Value Reports
+CREATE MATERIALIZED VIEW analytics.mv_supplier_value AS
+SELECT 
+    sup.name AS supplier_name,
+    sup.country,
+    COUNT(DISTINCT o.order_id) AS total_orders_fulfilled,
+    SUM(o.total_amount) AS total_revenue_generated
+FROM inventory.suppliers sup
+JOIN inventory.drugs d ON sup.drug_id = d.drug_id
+JOIN operations.orders o ON d.drug_id = o.drug_id
+GROUP BY sup.name, sup.country
+ORDER BY total_revenue_generated DESC;
