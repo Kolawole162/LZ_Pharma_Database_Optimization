@@ -44,27 +44,27 @@ ADD CONSTRAINT fk_dispatched_by
 
 -- Create partitions per year
 CREATE TABLE operations.orders_2020 PARTITION OF
-operations.order_partitioned
+operations.orders_partitioned
 FOR VALUES FROM ('2020-01-01') TO ('2021-01-01');
 
 CREATE TABLE operations.orders_2021 PARTITION OF
-operations.order_partitioned
+operations.orders_partitioned
 FOR VALUES FROM ('2021-01-01') TO ('2022-01-01');
 
 CREATE TABLE operations.orders_2022 PARTITION OF
-operations.order_partitioned
+operations.orders_partitioned
 FOR VALUES FROM ('2022-01-01') TO ('2023-01-01');
 
 CREATE TABLE operations.orders_2023 PARTITION OF
-operations.order_partitioned
+operations.orders_partitioned
 FOR VALUES FROM ('2023-01-01') TO ('2024-01-01');
 
 CREATE TABLE operations.orders_2024 PARTITION OF
-operations.order_partitioned
+operations.orders_partitioned
 FOR VALUES FROM ('2024-01-01') TO ('2025-01-01');
 
 CREATE TABLE operations.orders_2025 PARTITION OF
-operations.order_partitioned
+operations.orders_partitioned
 FOR VALUES FROM ('2025-01-01') TO ('2026-01-01');
 
 -- Insert into the orders_partitioned after partitioning
