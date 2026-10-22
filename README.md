@@ -1,5 +1,4 @@
 # LZ Pharma Database Security & Optimisation
-Creating roles and granting users permissions to ensure safe, easy access to work.
 
 A PostgreSQL project to secure and optimise a pharmacy database with four schemas: operations, inventory, research and analytics.
 
